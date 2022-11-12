@@ -1,6 +1,6 @@
 use rand::prelude::ThreadRng;
-use rand::thread_rng;
 use rand::seq::SliceRandom;
+use rand::thread_rng;
 use strum::IntoEnumIterator;
 
 use crate::card::*;
@@ -37,12 +37,12 @@ impl Deck {
     pub fn deal(&mut self) -> Card {
         match self.cards.pop() {
             None => panic!("Failed to receive a dealt card."), // @TODO: handle this
-            Some(card) => card
+            Some(card) => card,
         }
     }
 
     pub fn start_round(&mut self) {
-        if self.cards.len() < 27 {
+        if self.cards.len() < 26 {
             println!("Play continues with a new, shuffled deck.");
             self.cards = new_deck();
         }
